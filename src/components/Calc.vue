@@ -11,10 +11,12 @@
             v-model="fomula"></textarea>
         </div>
         <div class="text-center">
-          <button class="btn btn-primary"
-            v-on:click="click_1()">CALC</button>
-            <button class="btn btn-primary"
-            v-on:click="click_2()">TAX</button>
+          <button class="btn btn-primary" v-on:click="click_11()">=</button>
+          <button class="btn btn-primary" v-on:click="click_12()">TAX</button>
+          <button class="btn btn-primary" v-on:click="click_13()">+</button>
+          <button class="btn btn-primary" v-on:click="click_14()">-</button>
+          <button class="btn btn-primary" v-on:click="click_15()">×</button>
+          <button class="btn btn-primary" v-on:click="click_16()">÷</button>
         </div>
       </div>
     </div>
@@ -34,7 +36,7 @@ export default {
     }
   },
   methods:{
-    click_1:function() {
+    click_11:function() {
       let arr = this.fomula.trim().split('\n')
       let last = arr.pop()
       let fn = ''
@@ -52,13 +54,28 @@ export default {
       re += last
       this.$emit('result-event', re, ans)
     },
-     click_2 :function () {
+     click_12 :function () {
          let tax = 'tax'
          document.getElementById('textarea1').value += "tax"
+     },
+     click_13 :function () {
+         let tax = 'plus'
+         document.getElementById('textarea1').value += "+"
+     },
+     click_14 :function () {
+         let tax = 'minus'
+         document.getElementById('textarea1').value += "-"
+     },
+     click_15 :function () {
+         let tax = 'multiplied'
+         document.getElementById('textarea1').value += "*"
+     },
+     click_16 :function () {
+         let tax = 'divided'
+         document.getElementById('textarea1').value += "/"
      }
   }
 
   }
 
 </script>
-//document.getElementById("textarea4").value = "blue";
